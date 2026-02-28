@@ -570,8 +570,8 @@
     </div>
     <div class="navbar">
         <div>
-            <h1>Trader Rosenfeld - V1 (EMA200 + RSI%)</h1>
-            <div class="subtitle">Generated on 2026-02-28 01:48 | Combined Dashboard</div>
+            <h1>Trader Rosenfeld - V5 (ATR% + 30min)</h1>
+            <div class="subtitle">Generated on 2026-02-28 01:58 | Combined Dashboard</div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -579,7 +579,7 @@
         <div class="navbar-controls" id="navbarControls">
             
         <div class="version-toggle">
-            <button class="version-btn active" id="btnV1" onclick="switchVersion('v1')">
+            <button class="version-btn" id="btnV1" onclick="switchVersion('v1')">
                 <span class="version-btn-icon">📊</span>
                 <span class="version-btn-text">V1</span>
                 <span class="version-btn-subtitle">EMA200 + RSI%</span>
@@ -599,7 +599,7 @@
                 <span class="version-btn-text">V4</span>
                 <span class="version-btn-subtitle">EMA + Trailing</span>
             </button>
-            <button class="version-btn" id="btnV5" onclick="switchVersion('v5')">
+            <button class="version-btn active" id="btnV5" onclick="switchVersion('v5')">
                 <span class="version-btn-icon">🚀</span>
                 <span class="version-btn-text">V5</span>
                 <span class="version-btn-subtitle">ATR% + 30min</span>
@@ -3442,7 +3442,7 @@
             });
         }
         
-        let currentVersion = 'v1';
+        let currentVersion = 'v5';
 
         function switchVersion(version) {
             currentVersion = version;
