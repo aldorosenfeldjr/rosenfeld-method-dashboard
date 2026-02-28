@@ -571,7 +571,7 @@
     <div class="navbar">
         <div>
             <h1>Trader Rosenfeld - V5 (ATR% + 30min)</h1>
-            <div class="subtitle">Generated on 2026-02-28 03:01 | Combined Dashboard</div>
+            <div class="subtitle">Generated on 2026-02-28 13:03 | Combined Dashboard</div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -3251,27 +3251,39 @@
                 const grossLoss = Math.abs(trades.filter(t => t.pnl < 0).reduce((sum, t) => sum + t.pnl, 0));
                 const profitFactor = grossLoss > 0 ? (grossProfit / grossLoss) : (grossProfit > 0 ? 999.99 : 0);
 
-                // Calculate max drawdown (simple approximation from cumulative P&L)
-                let cumPnL = 0;
-                let peak = 0;
+                // Calculate max drawdown as percentage of peak equity
+                const initialBalance = window.currentInitialBalance || 200;
+                let equity = initialBalance;
+                let peakEquity = initialBalance;
                 let maxDD = 0;
-                trades.sort((a, b) => new Date(a.close_time) - new Date(b.close_time)).forEach(t => {
-                    cumPnL += t.pnl;
-                    if (cumPnL > peak) peak = cumPnL;
-                    const dd = peak > 0 ? ((peak - cumPnL) / peak) * 100 : 0;
-                    if (dd > maxDD) maxDD = dd;
+                const sortedTradesDD = [...trades].sort((a, b) => new Date(a.close_time) - new Date(b.close_time));
+                sortedTradesDD.forEach(t => {
+                    equity += t.pnl;
+                    peakEquity = Math.max(peakEquity, equity);
+                    if (peakEquity > 0) {
+                        const dd = ((peakEquity - equity) / peakEquity) * 100;
+                        maxDD = Math.max(maxDD, dd);
+                    }
                 });
 
-                // Calculate annual return (approximation: if we have X days of data)
-                let annualReturn = 0;
+                // Calculate annual return as percentage (only annualize if >= 30 days)
+                let annualReturnPct = 0;
                 if (trades.length >= 2) {
-                    const firstDate = new Date(trades[0].close_time);
-                    const lastDate = new Date(trades[trades.length - 1].close_time);
+                    const sortedTradesAR = [...trades].sort((a, b) => new Date(a.close_time) - new Date(b.close_time));
+                    const firstDate = new Date(sortedTradesAR[0].close_time);
+                    const lastDate = new Date(sortedTradesAR[sortedTradesAR.length - 1].close_time);
                     const daysDiff = Math.max(1, (lastDate - firstDate) / (1000 * 60 * 60 * 24));
-                    const dailyReturn = netPnL / daysDiff;
-                    annualReturn = (dailyReturn * 365);
-                } else {
-                    annualReturn = netPnL * 12; // Simple monthly extrapolation
+
+                    if (daysDiff >= 30) {
+                        // Annualize: (return %) * (365 / days)
+                        annualReturnPct = (netPnL / initialBalance) * (365 / daysDiff) * 100;
+                    } else {
+                        // For short periods, show actual return (not annualized)
+                        annualReturnPct = (netPnL / initialBalance) * 100;
+                    }
+                } else if (trades.length === 1) {
+                    // Single trade: show actual return
+                    annualReturnPct = (netPnL / initialBalance) * 100;
                 }
 
                 // Determine risk level
@@ -3297,7 +3309,7 @@
                     insight = 'Performance under review. Monitor closely.';
                 }
 
-                const annualClass = annualReturn >= 0 ? 'profit' : 'loss';
+                const annualClass = annualReturnPct >= 0 ? 'profit' : 'loss';
                 const pnlClass = netPnL >= 0 ? 'profit' : 'loss';
 
                 cardsHtml += `
@@ -3308,7 +3320,7 @@
                     </div>
                     <div class="metric-row">
                         <span class="metric-label">Annual Return</span>
-                        <span class="metric-value ${annualClass}">$${annualReturn.toFixed(2)}</span>
+                        <span class="metric-value ${annualClass}">${annualReturnPct.toFixed(1)}%</span>
                     </div>
                     <div class="metric-row">
                         <span class="metric-label">Profit Factor</span>
