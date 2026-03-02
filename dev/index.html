@@ -583,7 +583,7 @@
     <div class="navbar">
         <div>
             <h1>Trader Rosenfeld - V5 (ATR% + 30min)</h1>
-            <div class="subtitle">Generated on 2026-03-02 09:43 | Combined Dashboard</div>
+            <div class="subtitle">Generated on 2026-03-02 09:56 | Combined Dashboard</div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -3291,10 +3291,8 @@
                 // Card 4: Max Win
                 cards[4].querySelector('.exec-card-value').textContent = '$' + metrics.max_win.toFixed(2);
 
-                // Card 5: Win Rate
-                const winRateEl = cards[5].querySelector('.exec-card-value');
-                winRateEl.textContent = metrics.win_rate.toFixed(1) + '%';
-                winRateEl.className = 'exec-card-value ' + (metrics.win_rate >= 50 ? 'profit' : 'loss');
+                // Card 5: Win Rate (no conditional formatting - neutral color like Total Trades)
+                cards[5].querySelector('.exec-card-value').textContent = metrics.win_rate.toFixed(1) + '%';
                 cards[5].querySelector('.exec-card-subtitle').textContent = metrics.tp_count + ' TPs vs ' + metrics.sl_count + ' SLs';
 
                 // Card 6: Est. Annual Return
