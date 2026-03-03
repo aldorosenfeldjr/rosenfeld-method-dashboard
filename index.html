@@ -583,7 +583,7 @@
     <div class="navbar">
         <div>
             <h1>Trader Rosenfeld - V2 (ATR% + Direction)</h1>
-            <div class="subtitle">Generated on 2026-03-02 20:02 | Combined Dashboard</div>
+            <div class="subtitle">Generated on 2026-03-03 01:36 | Combined Dashboard</div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -1346,6 +1346,9 @@
         window.v7TradesData = [];
         window.v7MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
         window.v7EquityData = [];
+        window.v8TradesData = [];
+        window.v8MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v8EquityData = [];
         window.v1InitialBalance = 200.0;
         window.v2InitialBalance = 200.0;
         window.v3InitialBalance = 200.0;
@@ -1353,6 +1356,7 @@
         window.v5InitialBalance = 200.0;
         window.v6InitialBalance = 200.0;
         window.v7InitialBalance = 200.0;
+        window.v8InitialBalance = 200.0;
         window.allTradesData = window.v2TradesData;
         window.currentInitialBalance = window.v2InitialBalance;
         function toggleNavbarControls() {
@@ -1966,6 +1970,13 @@
                     equityData = window.v7EquityData || [];
                     initialBalance = window.v7InitialBalance || 200;
                     versionTitle = 'V7 (Breakeven Stop)';
+                    break;
+                case 'v8':
+                    tradesData = window.v8TradesData || [];
+                    metricsData = window.v8MetricsData || {};
+                    equityData = window.v8EquityData || [];
+                    initialBalance = window.v8InitialBalance || 200;
+                    versionTitle = 'V8 (ATR% + Breakeven)';
                     break;
             }
 
