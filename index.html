@@ -583,7 +583,7 @@
     <div class="navbar">
         <div>
             <h1>Trader Rosenfeld - V2 (ATR% + Direction)</h1>
-            <div class="subtitle">Generated on 2026-03-07 12:17 | Combined Dashboard</div>
+            <div class="subtitle">Generated on 2026-03-08 22:01 | Combined Dashboard</div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
             <span></span><span></span><span></span>
@@ -684,19 +684,19 @@
 
                 <div class="exec-card">
                     <div class="exec-card-label">Total Loss</div>
-                    <div class="exec-card-value">$81.05</div>
+                    <div class="exec-card-value">$-81.05</div>
                     <div class="exec-card-subtitle">Gross loss</div>
                 </div>
 
                 <div class="exec-card">
                     <div class="exec-card-label">Avg Loss</div>
-                    <div class="exec-card-value">$5.79</div>
+                    <div class="exec-card-value">$-5.79</div>
                     <div class="exec-card-subtitle">Per losing trade</div>
                 </div>
 
                 <div class="exec-card">
                     <div class="exec-card-label">Max Loss</div>
-                    <div class="exec-card-value">$8.24</div>
+                    <div class="exec-card-value">$-8.24</div>
                     <div class="exec-card-subtitle">Worst trade</div>
                 </div>
             </div>
@@ -1550,7 +1550,7 @@
                                 return [
                                     'Opening: ' + trade.open_time,
                                     '',
-                                    'Trade: ' + trade.symbol + ' ' + trade.type,
+                                    'Trade: ' + trade.symbol + ' ' + trade.type + ' (#' + (index + 1) + ')',
                                     'P&L this trade: $' + trade.trade_pnl.toFixed(2),
                                     '',
                                     'Cumulative P&L: $' + context.parsed.y.toFixed(2)
@@ -1669,7 +1669,7 @@
                 cards[8].querySelector('.exec-card-value').textContent = '$' + metrics.avg_loss.toFixed(2);
 
                 // Card 9: Max Loss
-                cards[9].querySelector('.exec-card-value').textContent = '$' + Math.abs(metrics.max_loss).toFixed(2);
+                cards[9].querySelector('.exec-card-value').textContent = '$' + metrics.max_loss.toFixed(2);
             }
         }
 
