@@ -462,22 +462,25 @@
 
         .version-toggle {
             display: flex;
-            gap: 6px;
+            gap: 4px;
             margin-right: 12px;
+            flex-shrink: 0;
         }
 
         .version-btn {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 6px 10px;
+            justify-content: center;
+            padding: 4px 8px;
             background: rgba(30, 41, 59, 0.8);
             border: 2px solid rgba(148, 163, 184, 0.2);
-            border-radius: 8px;
+            border-radius: 6px;
             color: #94a3b8;
             cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 60px;
+            transition: all 0.2s ease;
+            width: 36px;
+            height: 36px;
         }
 
         .version-btn:hover {
@@ -491,9 +494,9 @@
             color: #f1f5f9;
         }
 
-        .version-btn-icon { font-size: 1rem; margin-bottom: 2px; }
-        .version-btn-text { font-size: 0.8rem; font-weight: 700; }
-        .version-btn-subtitle { font-size: 0.55rem; color: #64748b; white-space: nowrap; }
+        .version-btn-icon { display: none; }
+        .version-btn-text { font-size: 0.75rem; font-weight: 700; }
+        .version-btn-subtitle { display: none; }
         .version-btn.active .version-btn-subtitle { color: #94a3b8; }
 
         
@@ -568,8 +571,8 @@
             .navbar h1 { font-size: 1rem; }
             .exec-card-value { font-size: 1.4rem; }
             .chart-container { height: 250px; }
-            .version-btn { min-width: 50px; padding: 4px 6px; }
-            .version-btn-text { font-size: 0.7rem; }
+            .version-btn { width: 32px; height: 32px; padding: 3px 5px; }
+            .version-btn-text { font-size: 0.65rem; }
         }
 
         @media print {
@@ -590,7 +593,7 @@
             </a>
             <div>
                 <h1>Trader Rosenfeld - V5 (ATR% + 30min Signals)</h1>
-                <div class="subtitle">Generated on 2026-03-15 13:12 | Combined Dashboard</div>
+                <div class="subtitle">Generated on 2026-03-15 13:21 | Combined Dashboard</div>
             </div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
