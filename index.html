@@ -774,14 +774,24 @@
             }
 
             const hash = await sha256(password);
-            const correctHash = '0347b60cebee9c9d8b332dd283235ba98a863ab9392a4ff6a551d63215bc612b';
+            const correctHash = '3a481e728390d89c6843c180dc18ca8d693de5f5421e6240711c5dad483c72b3';
 
             if (hash === correctHash) {
+                // Store unlock status for linked dashboards
+                sessionStorage.setItem('rosenfeldUnlocked', 'true');
+
+                // Check for pending redirect (user came from direct dashboard URL)
+                const redirectPath = sessionStorage.getItem('rosenfeldRedirectAfterAuth');
+                if (redirectPath && redirectPath !== '/' && redirectPath !== '/index.html') {
+                    sessionStorage.removeItem('rosenfeldRedirectAfterAuth');
+                    window.location.href = redirectPath;
+                    return;
+                }
+
+                // No redirect pending - show landing page content
                 document.getElementById('lockScreen').style.display = 'none';
                 document.body.classList.remove('locked');
                 document.getElementById('passwordInput').disabled = true;
-                // Store unlock status for linked dashboards
-                sessionStorage.setItem('rosenfeldUnlocked', 'true');
             } else {
                 failedAttempts++;
                 if (failedAttempts >= MAX_ATTEMPTS) {
