@@ -593,7 +593,7 @@
             </a>
             <div>
                 <h1>Trader Rosenfeld - V4 (EMA200 + RSI% + Trailing)</h1>
-                <div class="subtitle">Generated on 2026-04-04 12:27 | Combined Dashboard</div>
+                <div class="subtitle">Generated on 2026-04-04 14:33 | Combined Dashboard</div>
             </div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
@@ -4359,6 +4359,7 @@
         window.v9InitialBalance = 100.0;
         window.allTradesData = window.v4TradesData;
         window.currentInitialBalance = window.v4InitialBalance;
+        window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))"};
         function toggleNavbarControls() {
             const controls = document.getElementById('navbarControls');
             controls.classList.toggle('show');
@@ -4917,68 +4918,13 @@
             document.querySelectorAll('.version-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn' + version.toUpperCase()).classList.add('active');
 
-            // Get version-specific data
-            let tradesData, metricsData, equityData, initialBalance;
-            let versionTitle = '';
-
-            switch(version) {
-                case 'v1':
-                    tradesData = window.v1TradesData || [];
-                    metricsData = window.v1MetricsData || {};
-                    equityData = window.v1EquityData || [];
-                    initialBalance = window.v1InitialBalance || 200;
-                    versionTitle = 'V1 (EMA200 + RSI%)';
-                    break;
-                case 'v2':
-                    tradesData = window.v2TradesData || [];
-                    metricsData = window.v2MetricsData || {};
-                    equityData = window.v2EquityData || [];
-                    initialBalance = window.v2InitialBalance || 200;
-                    versionTitle = 'V2 (ATR% + Direction)';
-                    break;
-                case 'v3':
-                    tradesData = window.v3TradesData || [];
-                    metricsData = window.v3MetricsData || {};
-                    equityData = window.v3EquityData || [];
-                    initialBalance = window.v3InitialBalance || 200;
-                    versionTitle = 'V3 (ATR% + Trailing)';
-                    break;
-                case 'v4':
-                    tradesData = window.v4TradesData || [];
-                    metricsData = window.v4MetricsData || {};
-                    equityData = window.v4EquityData || [];
-                    initialBalance = window.v4InitialBalance || 200;
-                    versionTitle = 'V4 (EMA + RSI + Trailing)';
-                    break;
-                case 'v5':
-                    tradesData = window.v5TradesData || [];
-                    metricsData = window.v5MetricsData || {};
-                    equityData = window.v5EquityData || [];
-                    initialBalance = window.v5InitialBalance || 200;
-                    versionTitle = 'V5 (ATR% + 30min)';
-                    break;
-                case 'v6':
-                    tradesData = window.v6TradesData || [];
-                    metricsData = window.v6MetricsData || {};
-                    equityData = window.v6EquityData || [];
-                    initialBalance = window.v6InitialBalance || 200;
-                    versionTitle = 'V6 (Dynamic Trailing)';
-                    break;
-                case 'v7':
-                    tradesData = window.v7TradesData || [];
-                    metricsData = window.v7MetricsData || {};
-                    equityData = window.v7EquityData || [];
-                    initialBalance = window.v7InitialBalance || 200;
-                    versionTitle = 'V7 (Breakeven Stop)';
-                    break;
-                case 'v8':
-                    tradesData = window.v8TradesData || [];
-                    metricsData = window.v8MetricsData || {};
-                    equityData = window.v8EquityData || [];
-                    initialBalance = window.v8InitialBalance || 200;
-                    versionTitle = 'V8 (ATR% + Breakeven)';
-                    break;
-            }
+            // Dynamic data lookup — works for any registered version, zero hardcode
+            const tradesData     = window[version + 'TradesData']     || [];
+            const metricsData    = window[version + 'MetricsData']    || {};
+            const equityData     = window[version + 'EquityData']     || [];
+            const initialBalance = window[version + 'InitialBalance'] || 200;
+            const versionTitle   = (window.botVersionNames && window.botVersionNames[version])
+                                   || version.toUpperCase();
 
             // Update title
             const titleEl = document.querySelector('.navbar h1');
