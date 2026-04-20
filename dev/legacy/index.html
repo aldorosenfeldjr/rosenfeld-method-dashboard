@@ -627,7 +627,7 @@
             </a>
             <div>
                 <h1>Trader Rosenfeld - V4 (EMA200 + RSI% + Trailing)</h1>
-                <div class="subtitle">Generated on 2026-04-17 17:03 | Combined Dashboard</div>
+                <div class="subtitle">Generated on 2026-04-20 17:03 | Combined Dashboard</div>
             </div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
@@ -4396,6 +4396,9 @@
         window.v11TradesData = [];
         window.v11MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
         window.v11EquityData = [];
+        window.v12TradesData = [];
+        window.v12MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v12EquityData = [];
         window.v1InitialBalance = 100.0;
         window.v2InitialBalance = 100.0;
         window.v3InitialBalance = 100.0;
@@ -4407,9 +4410,10 @@
         window.v9InitialBalance = 100.0;
         window.v10InitialBalance = 100.0;
         window.v11InitialBalance = 100.0;
+        window.v12InitialBalance = 100.0;
         window.allTradesData = window.v4TradesData;
         window.currentInitialBalance = window.v4InitialBalance;
-        window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))", "v10": "V10 (ATR% + Direction (Buy & Sell) + Asymmetric Ratio)", "v11": "V11 (ATR% + Direction (Buy & Sell) + Quality Gate)"};
+        window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))", "v10": "V10 (ATR% + Direction (Buy & Sell) + Asymmetric Ratio)", "v11": "V11 (ATR% + Direction (Buy & Sell) + D1 Alignment)", "v12": "V12 (ATR% + Direction (Buy & Sell) + D1 Alignment + Quality Gate)"};
         function toggleNavbarControls() {
             const controls = document.getElementById('navbarControls');
             controls.classList.toggle('show');
