@@ -1,10 +1,10 @@
 {
   "environment": "DEV",
-  "timestamp": "2026-06-04T20:03:11.878990+00:00",
+  "timestamp": "2026-06-05T20:03:13.115072+00:00",
   "dashboards": {
     "active": {
       "has_trades": true,
-      "trade_count": 4664,
+      "trade_count": 4823,
       "enabled": true
     },
     "legacy": {
