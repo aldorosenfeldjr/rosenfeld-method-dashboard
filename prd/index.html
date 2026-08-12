@@ -626,8 +626,8 @@
                 <span class="home-icon">&#127968;</span>
             </a>
             <div>
-                <h1>Trader Rosenfeld - V1 (EMA200 + RSI%)</h1>
-                <div class="subtitle">Generated on 2026-08-11 20:35 | Combined Dashboard</div>
+                <h1>Trader Rosenfeld - V8 (ATR% + Breakeven (Multi-Offset))</h1>
+                <div class="subtitle">Generated on 2026-08-12 17:03 | Combined Dashboard</div>
             </div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
@@ -636,10 +636,10 @@
         <div class="navbar-controls" id="navbarControls">
             
         <div class="version-toggle">
-            <button class="version-btn active" id="btnV1" onclick="switchVersion('v1')">
-                <span class="version-btn-icon">📊</span>
-                <span class="version-btn-text">V1</span>
-                <span class="version-btn-subtitle">EMA200 + RSI%</span>
+            <button class="version-btn active" id="btnV8" onclick="switchVersion('v8')">
+                <span class="version-btn-icon">✨</span>
+                <span class="version-btn-text">V8</span>
+                <span class="version-btn-subtitle">ATR% + Breakeven (Multi-Offset)</span>
             </button>
         </div>
             <div class="filters-inline">
@@ -652,17 +652,19 @@
                         </div>
                         <div class="dropdown-options" id="pairDropdownOptions">
                             <label class="dropdown-option"><input type="checkbox" value="ALL" checked onchange="handlePairSelection(this)"> Todos</label>
+            <label class="dropdown-option"><input type="checkbox" value="EURJPY" checked onchange="handlePairSelection(this)"> EURJPY</label>
+            <label class="dropdown-option"><input type="checkbox" value="GBPJPY" checked onchange="handlePairSelection(this)"> GBPJPY</label>
 
                         </div>
                     </div>
                 </div>
                 <div class="filter-inline-item">
                     <span class="filter-inline-label">De:</span>
-                    <input type="datetime-local" id="dateFrom" class="filter-inline-input" value="2026-08-11T20:35" onchange="applyFilters()">
+                    <input type="datetime-local" id="dateFrom" class="filter-inline-input" value="2026-08-10T07:26" onchange="applyFilters()">
                 </div>
                 <div class="filter-inline-item">
                     <span class="filter-inline-label">Até:</span>
-                    <input type="datetime-local" id="dateTo" class="filter-inline-input" value="2026-08-11T20:35" onchange="applyFilters()">
+                    <input type="datetime-local" id="dateTo" class="filter-inline-input" value="2026-08-12T06:24" onchange="applyFilters()">
                 </div>
                 <div class="filter-inline-item">
                     <span class="filter-inline-label">Type:</span>
@@ -674,7 +676,7 @@
                 </div>
                 <button class="filter-inline-reset" onclick="resetFilters()">↺</button>
                 <div class="filter-inline-count">
-                    <span id="filteredCount">0</span>/<span id="totalCount">0</span>
+                    <span id="filteredCount">3</span>/<span id="totalCount">3</span>
                 </div>
             </div>
         </div>
@@ -688,7 +690,7 @@
                 <!-- Row 1: Total Trades, Total P&L, Total Gain, Avg Win, Max Win -->
                 <div class="exec-card">
                     <div class="exec-card-label">Total Trades</div>
-                    <div class="exec-card-value">0</div>
+                    <div class="exec-card-value">3</div>
                     <div class="exec-card-subtitle">Closed positions</div>
                 </div>
 
@@ -720,7 +722,7 @@
                 <div class="exec-card">
                     <div class="exec-card-label">Win Rate</div>
                     <div class="exec-card-value">0.0%</div>
-                    <div class="exec-card-subtitle">0 TPs vs 0 SLs</div>
+                    <div class="exec-card-subtitle">0 TPs vs 3 SLs</div>
                 </div>
 
                 <div class="exec-card">
@@ -775,6 +777,22 @@
                     </thead>
                     <tbody id="performanceTableBody">
                         
+                <tr>
+                    <td class="pair-name">EURJPY</td>
+                    <td>2</td>
+                    <td class="profit">0</td>
+                    <td class="loss">2</td>
+                    <td>0.0%</td>
+                    <td class="profit">$0.00</td>
+                </tr>
+                <tr>
+                    <td class="pair-name">GBPJPY</td>
+                    <td>1</td>
+                    <td class="profit">0</td>
+                    <td class="loss">1</td>
+                    <td>0.0%</td>
+                    <td class="profit">$0.00</td>
+                </tr>
                     </tbody>
                 </table>
             </div>
@@ -784,6 +802,72 @@
             <div class="section-subtitle">In-depth metrics and insights per currency pair</div>
             <div class="analysis-grid" id="analysisCardsGrid">
                 
+            <div class="analysis-card">
+                <div class="analysis-header">
+                    <span class="pair-name-large">EURJPY</span>
+                    <span class="risk-badge loss">High Risk</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Annual Return</span>
+                    <span class="metric-value profit">$0.00 (0.00%)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Profit Factor</span>
+                    <span class="metric-value">0.00</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Win Rate</span>
+                    <span class="metric-value">0.0%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Max Drawdown</span>
+                    <span class="metric-value loss">$0.00 (0.00%)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Total Trades</span>
+                    <span class="metric-value">2</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Net P&L</span>
+                    <span class="metric-value profit">$0.00</span>
+                </div>
+                <div class="analysis-insight">
+                    <p>Significant losses accumulated. High-risk pair requiring immediate attention.</p>
+                </div>
+            </div>
+            <div class="analysis-card">
+                <div class="analysis-header">
+                    <span class="pair-name-large">GBPJPY</span>
+                    <span class="risk-badge loss">High Risk</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Annual Return</span>
+                    <span class="metric-value profit">$0.00 (0.00%)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Profit Factor</span>
+                    <span class="metric-value">0.00</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Win Rate</span>
+                    <span class="metric-value">0.0%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Max Drawdown</span>
+                    <span class="metric-value loss">$0.00 (0.00%)</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Total Trades</span>
+                    <span class="metric-value">1</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Net P&L</span>
+                    <span class="metric-value profit">$0.00</span>
+                </div>
+                <div class="analysis-insight">
+                    <p>Significant losses accumulated. High-risk pair requiring immediate attention.</p>
+                </div>
+            </div>
             </div>
         </div>
         <div class="section">
@@ -811,6 +895,54 @@
                     </thead>
                     <tbody id="tradesTableBody">
                         
+                <tr data-version="V8">
+                    <td>359387005</td>
+                    <td class="pair-name">GBPJPY</td>
+                    <td class="profit">BUY</td>
+                    <td>2026-08-10 10:56</td>
+                    <td>2026-08-12 06:24</td>
+                    <td>43h27m</td>
+                    <td><span class="version-badge">V8</span></td>
+                    <td class="ind1">N/A</td>
+                    <td class="ind2">N/A</td>
+                    <td class="ind3">N/A</td>
+                    <td>N/A</td>
+                    <td class="extra-indicators" title="N/A">N/A</td>
+                    <td class="loss">SL</td>
+                    <td class="profit">$0.00</td>
+                </tr>
+                <tr data-version="V8">
+                    <td>359307521</td>
+                    <td class="pair-name">EURJPY</td>
+                    <td class="profit">BUY</td>
+                    <td>2026-08-10 07:26</td>
+                    <td>2026-08-12 06:23</td>
+                    <td>46h57m</td>
+                    <td><span class="version-badge">V8</span></td>
+                    <td class="ind1">N/A</td>
+                    <td class="ind2">N/A</td>
+                    <td class="ind3">N/A</td>
+                    <td>N/A</td>
+                    <td class="extra-indicators" title="N/A">N/A</td>
+                    <td class="loss">SL</td>
+                    <td class="profit">$0.00</td>
+                </tr>
+                <tr data-version="V8">
+                    <td>359387003</td>
+                    <td class="pair-name">EURJPY</td>
+                    <td class="profit">BUY</td>
+                    <td>2026-08-10 10:56</td>
+                    <td>2026-08-12 06:23</td>
+                    <td>43h27m</td>
+                    <td><span class="version-badge">V8</span></td>
+                    <td class="ind1">N/A</td>
+                    <td class="ind2">N/A</td>
+                    <td class="ind3">N/A</td>
+                    <td>N/A</td>
+                    <td class="extra-indicators" title="N/A">N/A</td>
+                    <td class="loss">SL</td>
+                    <td class="profit">$0.00</td>
+                </tr>
                     </tbody>
                 </table>
             </div>
@@ -843,9 +975,9 @@
         window.v7TradesData = [];
         window.v7MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
         window.v7EquityData = [];
-        window.v8TradesData = [];
-        window.v8MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
-        window.v8EquityData = [];
+        window.v8TradesData = [{"ticket": 359307521, "symbol": "EURJPYm", "open_time": "2026-08-10 07:26:29", "close_time": "2026-08-12 06:23:41", "type": "BUY", "volume": 0.01, "pnl": 0.0, "result": "SL", "version": "V8", "ema200": null, "rsi": null, "atr": null, "trend": null, "trend_ema_pct": null, "rsi_pct": null, "atr_percent": null, "atr_signal": null, "direction": null, "direction_percent": null, "fator_atr": null, "fator_atr_tp": null, "fator_atr_sl": null, "fator_ema": null, "fator_rsi": null, "trailing_stop": null, "dynamic_trailing": null, "signal_30min": null}, {"ticket": 359387003, "symbol": "EURJPYm", "open_time": "2026-08-10 10:56:34", "close_time": "2026-08-12 06:23:38", "type": "BUY", "volume": 0.01, "pnl": 0.0, "result": "SL", "version": "V8", "ema200": null, "rsi": null, "atr": null, "trend": null, "trend_ema_pct": null, "rsi_pct": null, "atr_percent": null, "atr_signal": null, "direction": null, "direction_percent": null, "fator_atr": null, "fator_atr_tp": null, "fator_atr_sl": null, "fator_ema": null, "fator_rsi": null, "trailing_stop": null, "dynamic_trailing": null, "signal_30min": null}, {"ticket": 359387005, "symbol": "GBPJPYm", "open_time": "2026-08-10 10:56:34", "close_time": "2026-08-12 06:24:23", "type": "BUY", "volume": 0.01, "pnl": 0.0, "result": "SL", "version": "V8", "ema200": null, "rsi": null, "atr": null, "trend": null, "trend_ema_pct": null, "rsi_pct": null, "atr_percent": null, "atr_signal": null, "direction": null, "direction_percent": null, "fator_atr": null, "fator_atr_tp": null, "fator_atr_sl": null, "fator_ema": null, "fator_rsi": null, "trailing_stop": null, "dynamic_trailing": null, "signal_30min": null}];
+        window.v8MetricsData = {"total_trades": 3, "tp_count": 0, "sl_count": 3, "win_rate": 0.0, "total_profit": 0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0, "avg_loss": 0.0, "profit_factor": 0, "max_win": 0, "max_loss": 0.0, "avg_duration_hours": 44.62268518518518};
+        window.v8EquityData = [{"date": "2026-08-12 06:23", "cumulative_pnl": 0.0, "symbol": "EURJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 10:56"}, {"date": "2026-08-12 06:23", "cumulative_pnl": 0.0, "symbol": "EURJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 07:26"}, {"date": "2026-08-12 06:24", "cumulative_pnl": 0.0, "symbol": "GBPJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 10:56"}];
         window.v9TradesData = [];
         window.v9MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
         window.v9EquityData = [];
@@ -870,25 +1002,25 @@
         window.v10InitialBalance = 200.0;
         window.v11InitialBalance = 200.0;
         window.v12InitialBalance = 200.0;
-        window.allTradesData = window.v1TradesData;
-        window.currentInitialBalance = window.v1InitialBalance;
+        window.allTradesData = window.v8TradesData;
+        window.currentInitialBalance = window.v8InitialBalance;
         window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))", "v10": "V10 (ATR% + Direction (Buy & Sell) + Asymmetric Ratio)", "v11": "V11 (ATR% + Direction (Buy & Sell) + D1 Alignment)", "v12": "V12 (ATR% + Direction (Buy & Sell) + D1 Alignment + Quality Gate)"};
         function toggleNavbarControls() {
             const controls = document.getElementById('navbarControls');
             controls.classList.toggle('show');
         }
         
-        const tradeDetails = [];
+        const tradeDetails = [{"symbol": "EURJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 10:56"}, {"symbol": "EURJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 07:26"}, {"symbol": "GBPJPY", "type": "BUY", "trade_pnl": 0.0, "open_time": "2026-08-10 10:56"}];
         window.tradeDetails = tradeDetails;
 
         const ctx = document.getElementById('equityChart').getContext('2d');
         window.equityChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: [],
+                labels: ["2026-08-12 06:23", "2026-08-12 06:23", "2026-08-12 06:24"],
                 datasets: [{
                     label: 'Cumulative P&L',
-                    data: [],
+                    data: [0.0, 0.0, 0.0],
                     borderColor: '#60a5fa',
                     backgroundColor: 'rgba(96, 165, 250, 0.1)',
                     borderWidth: 2,
@@ -969,7 +1101,7 @@
         });
         
         function exportToExcel() {
-            const allTrades = [];
+            const allTrades = [{"Ticket": 359387005, "Version": "V8", "Pair": "GBPJPY", "Type": "BUY", "Opening (GMT+0)": "2026-08-10 10:56:34", "Closing (GMT+0)": "2026-08-12 06:24:23", "Duration": "43h27m", "Result": "SL", "P&L": 0.0, "EMA200": "", "Trend": "", "RSI": "", "ATR": "", "TrendEMA%": "", "RSI%": "", "ATR%": "", "ATRSignal": "", "Direction": "", "Direction%": "", "FatorATR_TP": "", "FatorATR_SL": "", "FatorEMA": "", "FatorRSI": "", "TrailingStop": "", "DynamicTrailing": "", "30minSignal": ""}, {"Ticket": 359307521, "Version": "V8", "Pair": "EURJPY", "Type": "BUY", "Opening (GMT+0)": "2026-08-10 07:26:29", "Closing (GMT+0)": "2026-08-12 06:23:41", "Duration": "46h57m", "Result": "SL", "P&L": 0.0, "EMA200": "", "Trend": "", "RSI": "", "ATR": "", "TrendEMA%": "", "RSI%": "", "ATR%": "", "ATRSignal": "", "Direction": "", "Direction%": "", "FatorATR_TP": "", "FatorATR_SL": "", "FatorEMA": "", "FatorRSI": "", "TrailingStop": "", "DynamicTrailing": "", "30minSignal": ""}, {"Ticket": 359387003, "Version": "V8", "Pair": "EURJPY", "Type": "BUY", "Opening (GMT+0)": "2026-08-10 10:56:34", "Closing (GMT+0)": "2026-08-12 06:23:38", "Duration": "43h27m", "Result": "SL", "P&L": 0.0, "EMA200": "", "Trend": "", "RSI": "", "ATR": "", "TrendEMA%": "", "RSI%": "", "ATR%": "", "ATRSignal": "", "Direction": "", "Direction%": "", "FatorATR_TP": "", "FatorATR_SL": "", "FatorEMA": "", "FatorRSI": "", "TrailingStop": "", "DynamicTrailing": "", "30minSignal": ""}];
             const ws = XLSX.utils.json_to_sheet(allTrades);
             const wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, "Trades");
@@ -1422,7 +1554,7 @@
             });
         }
         
-        let currentVersion = 'v1';
+        let currentVersion = 'v8';
         let selectedTradeType = 'ALL';
 
         function switchVersion(version) {
