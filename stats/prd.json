@@ -1,10 +1,10 @@
 {
   "environment": "PRD",
-  "timestamp": "2026-08-25T20:04:31.856456+00:00",
+  "timestamp": "2026-08-26T20:03:45.789909+00:00",
   "dashboards": {
     "active": {
       "has_trades": true,
-      "trade_count": 14,
+      "trade_count": 15,
       "enabled": true
     },
     "legacy": {
