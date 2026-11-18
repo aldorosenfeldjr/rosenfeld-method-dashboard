@@ -627,7 +627,7 @@
             </a>
             <div>
                 <h1>Trader Rosenfeld - V8 (ATR% + Breakeven (Multi-Offset))</h1>
-                <div class="subtitle">Generated on 2026-11-17 17:02 | Combined Dashboard</div>
+                <div class="subtitle">Generated on 2026-11-18 17:02 | Combined Dashboard</div>
             </div>
         </div>
         <button class="navbar-toggle" onclick="toggleNavbarControls()" aria-label="Toggle menu">
@@ -2049,6 +2049,21 @@
         window.v13TradesData = [];
         window.v13MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
         window.v13EquityData = [];
+        window.v14TradesData = [];
+        window.v14MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v14EquityData = [];
+        window.v15TradesData = [];
+        window.v15MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v15EquityData = [];
+        window.v16TradesData = [];
+        window.v16MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v16EquityData = [];
+        window.v17TradesData = [];
+        window.v17MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v17EquityData = [];
+        window.v18TradesData = [];
+        window.v18MetricsData = {"total_trades": 0, "tp_count": 0, "sl_count": 0, "win_rate": 0.0, "total_profit": 0.0, "total_loss": 0.0, "net_pnl": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "profit_factor": 0.0, "max_win": 0.0, "max_loss": 0.0, "avg_duration_hours": 0.0};
+        window.v18EquityData = [];
         window.v1InitialBalance = 100.33;
         window.v2InitialBalance = 100.33;
         window.v3InitialBalance = 100.33;
@@ -2062,9 +2077,14 @@
         window.v11InitialBalance = 200.0;
         window.v12InitialBalance = 200.0;
         window.v13InitialBalance = 200.0;
+        window.v14InitialBalance = 200.0;
+        window.v15InitialBalance = 200.0;
+        window.v16InitialBalance = 200.0;
+        window.v17InitialBalance = 200.0;
+        window.v18InitialBalance = 200.0;
         window.allTradesData = window.v8TradesData;
         window.currentInitialBalance = window.v8InitialBalance;
-        window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))", "v10": "V10 (ATR% + Direction (Buy & Sell) + Asymmetric Ratio)", "v11": "V11 (ATR% + Direction (Buy & Sell) + D1 Alignment)", "v12": "V12 (ATR% + Direction (Buy & Sell) + D1 Alignment + Quality Gate)", "v13": "V13 (ATR% + Direction + Market-Risk Filter)"};
+        window.botVersionNames = {"v1": "V1 (EMA200 + RSI%)", "v2": "V2 (ATR% + Direction)", "v3": "V3 (ATR% + Trailing Stop)", "v4": "V4 (EMA200 + RSI% + Trailing)", "v5": "V5 (ATR% + 30min Signals)", "v6": "V6 (ATR% + Dynamic Trailing)", "v7": "V7 (ATR% + Breakeven Stop)", "v8": "V8 (ATR% + Breakeven (Multi-Offset))", "v9": "V9 (ATR% + Direction (Buy & Sell))", "v10": "V10 (ATR% + Direction (Buy & Sell) + Asymmetric Ratio)", "v11": "V11 (ATR% + Direction (Buy & Sell) + D1 Alignment)", "v12": "V12 (ATR% + Direction (Buy & Sell) + D1 Alignment + Quality Gate)", "v13": "V13 (ATR% + Direction + Market-Risk Filter)", "v14": "V14 (ATR% + Direction (Buy & Sell) + 30min Signals)", "v15": "V15 (ATR% + Direction - SL 3 / TP 4 ATR)", "v16": "V16 (ATR% + Direction - SL 4 / TP 4 ATR)", "v17": "V17 (ATR% + Direction - SL 6 / TP 4 ATR)", "v18": "V18 (ATR% + 30min Signals - SL 4 / TP 4 ATR)"};
         function toggleNavbarControls() {
             const controls = document.getElementById('navbarControls');
             controls.classList.toggle('show');
